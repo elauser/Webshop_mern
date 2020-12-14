@@ -14,7 +14,6 @@ const UserEditScreen = ({ match, history }) => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [isAdmin, setIsAdmin] = useState(false)
-  const [message, setMessage] = useState(null)
 
   const dispatch = useDispatch()
 
@@ -29,7 +28,7 @@ const UserEditScreen = ({ match, history }) => {
       dispatch({ type: USER_UPDATE_RESET })
       history.push('/admin/userlist')
     } else {
-      if (!user.name || user._id != userId) {
+      if (!user.name || user._id !== userId) {
         dispatch(getUserDetails(userId))
       } else {
         setName(user.name)
